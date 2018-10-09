@@ -1,0 +1,32 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="proPath" value="${pageContext.request.contextPath}" />
+<!-- 公司版权注释 -->  
+<!--- 杜翔个人it资源网站，禁止非法操作 网站唯一官网 itlaiba.com  --->
+<meta name="author" content="杜翔">
+<!-- .禁止浏览器从本地机的缓存中调阅页面内容。 -->
+<meta http-equiv="pragma" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="杜翔,it资源共享,itlaiba,it来吧,杜翔项目,项目列表, java项目列表, 
+ssm,ssh, 学习, 编程, java, java web">
+<meta name="Description" content="it资源共享,杜翔个人网站，专注it资源共享，避免查找资料的时间浪费">
+<link rel="icon" href="${proPath }/main/images/favicon.ico" type="image/x-icon" />
+<link href="${proPath }/main/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="${proPath }/main/css/font-awesome.css" rel="stylesheet"> 
+<link href="${proPath }/main/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="${proPath }/main/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="${proPath }/main/js/move-top.js"></script>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?23d18f5b6e4b94017a5580a81d1c3779";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+

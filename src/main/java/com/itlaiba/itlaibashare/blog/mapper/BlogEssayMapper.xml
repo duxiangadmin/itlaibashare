@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itlaiba.itlaibashare.blog.mapper.BlogEssayMapper">
+  <resultMap id="BaseResultMap" type="com.itlaiba.itlaibashare.blog.pojo.BlogEssay">
+    <id column="order_by" jdbcType="INTEGER" property="orderBy" />
+    <id column="blog_id" jdbcType="VARCHAR" property="blogId" />
+    <result column="blog_title" jdbcType="VARCHAR" property="blogTitle" />
+    <result column="blog_img" jdbcType="VARCHAR" property="blogImg" />
+    <result column="blog_create_time" jdbcType="VARCHAR" property="blogCreateTime" />
+    <result column="blog_classify" jdbcType="INTEGER" property="blogClassify" />
+    <result column="blog_red_num" jdbcType="INTEGER" property="blogRedNum" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.itlaiba.itlaibashare.blog.pojo.BlogEssay">
+    <result column="blog_content" jdbcType="LONGVARCHAR" property="blogContent" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    order_by, blog_id, blog_title, blog_img, blog_create_time, blog_classify, blog_red_num, blog_content
+  </sql>
+  
+  <sql id="min_Column_List">
+    order_by, blog_id, blog_title, blog_img, blog_create_time, blog_classify, blog_red_num
+  </sql>
+  
+  <select id="selectList" resultMap="ResultMapWithBLOBs">
+  	select <include refid="min_Column_List"/> from blog_essay
+  </select>
+  
+  <select id="select" parameterType="com.itlaiba.itlaibashare.page.Page" resultMap="ResultMapWithBLOBs">
+  	select <include refid="Base_Column_List"/> from blog_essay
+  	<if test="keyword!=null and ''!=keyword">
+  		where blog_title like '%${keyword}%'
+  	</if>
+  	ORDER BY order_by DESC
+  </select>
+  
+  <select id="selectByPrimaryKey" parameterType="com.itlaiba.itlaibashare.blog.pojo.BlogEssayKey" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_essay
+    where blog_id = #{blogId,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="com.itlaiba.itlaibashare.blog.pojo.BlogEssayKey">
+    delete from blog_essay
+    where blog_id = #{blogId,jdbcType=VARCHAR}
+  </delete>
+  
+  
+  <delete id="deleteList">
+    delete from blog_essay
+    where blog_id in
+	<foreach item="id" collection="array" open="(" close=")" separator=",">
+		#{id}
+	</foreach>
+  </delete>
+  
+  <update id="update" parameterType="com.itlaiba.itlaibashare.blog.pojo.BlogEssay">
+  	update blog_essay 
+  	set blog_title = #{blogTitle,jdbcType=VARCHAR},
+      blog_img = #{blogImg,jdbcType=VARCHAR},
+      blog_create_time = #{blogCreateTime,jdbcType=VARCHAR},
+      blog_classify = #{blogClassify,jdbcType=INTEGER},
+      blog_red_num = #{blogRedNum,jdbcType=INTEGER},
+      blog_content = #{blogContent,jdbcType=LONGVARCHAR},
+      order_by = #{orderBy,jdbcType=INTEGER}
+    where blog_id = #{blogId,jdbcType=VARCHAR}
+  </update>
+  
+  <insert id="insert" parameterType="com.itlaiba.itlaibashare.blog.pojo.BlogEssay">
+    insert into blog_essay (order_by, blog_id, blog_title, 
+      blog_img, blog_create_time, blog_classify, 
+      blog_red_num, blog_content)
+    values (#{orderBy,jdbcType=INTEGER}, #{blogId,jdbcType=VARCHAR}, #{blogTitle,jdbcType=VARCHAR}, 
+      #{blogImg,jdbcType=VARCHAR}, #{blogCreateTime,jdbcType=VARCHAR}, #{blogClassify,jdbcType=INTEGER}, 
+      #{blogRedNum,jdbcType=INTEGER}, #{blogContent,jdbcType=LONGVARCHAR})
+  </insert>
+  
+</mapper>

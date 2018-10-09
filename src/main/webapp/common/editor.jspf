@@ -1,0 +1,42 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="propath" value="${pageContext.request.contextPath }"></c:set>
+<script charset="utf-8" src="${propath }/editor/kindeditor-all.js"></script>
+<script charset="utf-8" src="${propath }/editor/lang/zh-CN.js"></script>
+<script src="${propath}/editor/plugins/code/prettify.js"></script>  
+<script>
+        KindEditor.ready(function(K) {
+			       /*  var options = K.create('#editor_id', {
+			                uploadJson : '${propath}/editor/jsp/upload_json.jsp',
+			                fileManagerJson : '${propath}/editor/jsp/file_manager_json.jsp',
+			                allowFileManager : true,
+			                js数据提交必须
+			                afterBlur: function () {this.sync(); }		                
+			        }); */	 
+			        
+			         var options = {
+			         	cssPath:'${propath}/editor/plugins/code/prettify.css',
+			            uploadJson : '${propath}/editor/jsp/upload_json.jsp',
+			            fileManagerJson : '${propath}/editor/jsp/file_manager_json.jsp',
+			            allowFileManager : true,
+			            resizeType : 0,
+			            items : [
+								'source', '|', 'undo', 'redo', '|', 'preview',  'template', 'code', 'cut', '|', 'justifyleft', 'justifycenter', 'justifyright',
+								'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+								'superscript', 'clearhtml',  '|', 'fullscreen',	'formatblock', 'fontname', 'fontsize', '|', '/', 'forecolor', 'hilitecolor', 'bold',
+								'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+								'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+								'anchor', 'link', 'unlink', '|', 'about'
+							],
+			            afterCreate : function() {
+			                this.sync();
+			            },
+			            afterBlur : function() {
+			                this.sync();
+			            }
+			        };         
+			         var editor = K.create('textarea', options);
+                  	/* editor.sync(); */
+     			   //prettyPrint();
+    	});
+</script>

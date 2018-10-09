@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itlaiba.itlaibashare.classify.mapper.BlogClassifyMapper">
+
+  <resultMap id="BaseResultMap" type="com.itlaiba.itlaibashare.classify.pojo.BlogClassify">
+    <id column="class_id" jdbcType="INTEGER" property="classIf" />
+    <result column="class_ify" jdbcType="VARCHAR" property="classIfy" />
+    <result column="blog_id" jdbcType="INTEGER" property="blogId" />
+    <result column="classify_img" jdbcType="VARCHAR" property="classifyImg" />
+  </resultMap>
+  
+  <sql id="entity">
+  	class_id,class_ify,blog_id,classify_img
+  </sql>
+  
+  <select id="selectList" resultMap="BaseResultMap">
+  	select 
+  	<include refid="entity"/>
+  	from blog_classify
+  </select>
+  
+  <select id="selectify" resultMap="BaseResultMap">
+  	select class_ify,blog_id,classify_img from blog_classify
+  </select>
+</mapper>

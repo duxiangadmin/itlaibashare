@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN" "\\urlrewrite3.2.dtd">
+<urlrewrite>  
+  <rule>
+  	<note>这里是博客文章的伪静态</note>
+    <from>^/blog/([a-zA-Z0-9]+).html$</from>
+    <to>/blog/selectByKey/$1</to>
+  </rule>
+  <rule>
+  	<note>这里是图文的伪静态</note>
+    <from>^/essay/4.html$</from>
+    <to>/main/blogClassify.jsp</to>
+  </rule>
+  <rule>
+  	<note>这里是资源下载（更多资源）的伪静态</note>
+    <from>^/resource/3.html$</from>
+    <to>/resource/syspage</to>
+  </rule>
+  <rule>
+  	<note>这里是视频资源下载（更多资源）的伪静态</note>
+    <from>^/resource/videoResources.html$</from>
+    <to>/sdy/selectAll</to>
+  </rule>
+  <rule>
+  	<note>这里是视频资源详细下载（更多资源）的伪静态</note>
+    <from>^/sdy/([a-zA-Z0-9]+).html$</from>
+    <to>/sdy/selectById/$1</to>
+  </rule>
+</urlrewrite>

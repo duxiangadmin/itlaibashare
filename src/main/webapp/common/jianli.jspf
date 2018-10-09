@@ -1,0 +1,65 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<!-- //about -->
+	<div id="experience" class="experience">
+		<div class="container">
+		<span class="about-top-w3">个人履历</span>
+			<h4 class="title-w3ls">工作经验</h4>
+			<div class="work-info"> 
+				<div class="col-md-3 work-left"> 
+					<h4>2018.7 - 至今 </h4>
+				</div>
+				<div class="col-md-1"> </div>
+				<div class="col-md-7 work-right"> 
+					<h5>讲师</h5>
+					<p>武汉警官职业学院<small>(校企合作-伟创聚赢)</small></p>
+					<p>1.主要负责软件相关的课程教学</p>
+					<p>2.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="work-info"> 
+				<div class="col-md-3 work-left"> 
+					<h4>2016.9 - 2018.6 </h4>
+				</div>
+				<div class="col-md-1"> </div>
+				<div class="col-md-7 work-right"> 
+					<h5>讲师</h5>
+					<p>杭州广播电视大学中专部</p>
+					<p>1.从事课件制作</p>
+					<p>2.主要负责html，css，javascript，java课程的教学</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+
+			<div class="work-info"> 
+				<div class="col-md-3 work-left"> 
+					<h4>2016.7 - 2018.6 </h4>
+				</div>
+				<div class="col-md-1"> </div>
+				<div class="col-md-7 work-right"> 
+					<h5> 教育部/互联网工程师</h5>
+					<p>杭州国联信息技术有限公司(此公司隶属于杭州广播电视大学中专部教育部)</p>
+					<p>1、主要从事软件编码工作</p>
+					<p>2、学习教学流程</p>
+					<p>3、系统学习java设计；包含：Html/JavaScript基础教程、Java语法基础、Servlet/JSP深入详解、Struts2，Hibernate，Spring,springmvc,mybatis框架的开发、Ajax和jQuery，EasyUI的 框架技术</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="work-info"> 
+				<div class="col-md-3 work-left"> 
+					<h4>2015.10 - 2016.2 </h4>
+				</div>
+				<div class="col-md-1"> </div>
+				<div class="col-md-7 work-right"> 
+					<h5>javaEE工程师</h5>
+					<p>黄州文峰软件公司</p>
+					<p>1、主要从事软件编码工作</p>
+					<p>2、涉及用户需求调研、功能模块分析及编码实现等；</p>
+					<p>3、编写产品说明文档；</p>
+					<p>4.完成上级交办的其他事宜；</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	

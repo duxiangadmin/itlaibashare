@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itlaiba.itlaibashare.category.mapper.CategoryMapper">
+
+  <resultMap id="BaseResultMap" type="com.itlaiba.itlaibashare.category.pojo.Category">
+    <id column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <id column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    <result column="category_url" jdbcType="VARCHAR" property="categoryUrl" />
+    <result column="category_pid" jdbcType="INTEGER" property="categoryPid" />
+  </resultMap>
+  
+  <sql id="entity">
+  	category_id,category_name,category_url,category_pid
+  </sql>
+  
+  <select id="selectList" resultMap="BaseResultMap">
+  	select 
+  	<include refid="entity"/>
+  	from category
+  </select>
+</mapper>

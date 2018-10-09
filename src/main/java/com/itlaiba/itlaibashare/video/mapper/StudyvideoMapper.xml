@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itlaiba.itlaibashare.video.mapper.StudyvideoMapper">
+  <resultMap id="BaseResultMap" type="com.itlaiba.itlaibashare.video.pojo.Studyvideo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="video_name" jdbcType="VARCHAR" property="videoName" />
+    <result column="video_summary" jdbcType="VARCHAR" property="videoSummary" />
+    <result column="video_url" jdbcType="VARCHAR" property="videoUrl" />
+    <result column="video_ify" jdbcType="INTEGER" property="videoIfy" />
+    <result column="video_money" jdbcType="INTEGER" property="videoMoney" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.itlaiba.itlaibashare.video.pojo.Studyvideo">
+    <result column="video_content" jdbcType="LONGVARCHAR" property="videoContent" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    id, video_name, video_summary, video_url, video_ify ,video_money
+  </sql>
+  <sql id="Blob_Column_List">
+    video_content
+  </sql>
+  
+  <select id="count" parameterType="com.itlaiba.itlaibashare.page.Page" resultType="long">
+  	select count(1) from studyvideo
+  	<if test="ify!=null and ''!=ify">
+  		where video_ify like '%${ify}%'
+  	</if>
+  </select>
+  
+  <select id="selectAll" parameterType="com.itlaiba.itlaibashare.page.Page" resultMap="BaseResultMap">
+  	select 
+  	<include refid="Base_Column_List"></include> from studyvideo
+  	<if test="ify!=null and ''!=ify">
+  	where video_ify like '%${ify}%'
+  	</if>
+  </select>
+  
+  <select id="selectById" parameterType="com.itlaiba.itlaibashare.video.pojo.Studyvideo" resultMap="ResultMapWithBLOBs">
+  	select 
+  	<include refid="Base_Column_List"></include>,
+  	<include refid="Blob_Column_List"></include>
+  	from studyvideo where id=#{id}
+  </select>
+  
+  <insert id="insert" parameterType="com.itlaiba.itlaibashare.video.pojo.Studyvideo">
+  	insert into studyvideo (id, video_name, video_summary, 
+      video_url, video_ify,video_money, video_content
+      )
+    values (#{id,jdbcType=INTEGER}, #{videoName,jdbcType=VARCHAR}, #{videoSummary,jdbcType=VARCHAR}, 
+      #{videoUrl,jdbcType=VARCHAR}, #{videoIfy,jdbcType=INTEGER},#{videoMoney,jdbcType=INTEGER}, #{videoContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.itlaiba.itlaibashare.video.pojo.Studyvideo">
+    update studyvideo
+    set video_name = #{videoName,jdbcType=VARCHAR},
+      video_summary = #{videoSummary,jdbcType=VARCHAR},
+      video_url = #{videoUrl,jdbcType=VARCHAR},
+      video_ify = #{videoIfy,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

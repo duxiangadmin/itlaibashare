@@ -1,0 +1,117 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?4af2f3a2c16e429579bd1853f6076bf7";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+<%--百度分享代码--%>
+<script>window._bd_share_config = {
+		"common" : {
+			"bdSnsKey" : {},
+			"bdText" : "",
+			"bdMini" : "1",
+			"bdMiniList" : [ "mshare", "qzone", "tsina", "weixin", "tqq", "tieba", "sqq", "ty" ],
+			"bdPic" : "",
+			"bdStyle" : "0",
+			"bdSize" : "16"
+		},
+		"slide" : {
+			"type" : "slide",
+			"bdImg" : "2",
+			"bdPos" : "right",
+			"bdTop" : "135.5"
+		}
+	};with(document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+
+
+<div class="container">
+	<!--default默认主题 暗色调inverse-->
+	<nav class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a href="#" class="navbar-brand"><strong>itlaiba</strong>.com</a>
+			<button class="navbar-toggle" data-toggle="collapse"
+				data-target="#nav1">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+		</div>
+		<div id="nav1" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<!--active加深-->
+				<li class="active"><a href="http://www.itlaiba.com">首页</a></li>
+				<li><a href="http://www.itlaiba.com#stationmaster">项目下载</a></li>
+				<li><a href="${proPath }/resource/3.html">软件资源下载</a></li>
+				<li><a href="${proPath }/resource/videoResources.html">视频教程下载</a>
+				</li>
+				<li><a
+					href="https://codeload.github.com/duxiangadmin/itlaibashare/zip/master">本站源码下载</a>
+				</li>
+				<%-- <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">资源分类 <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="${proPath }/resource/selectByClassify/api">API</a></li>
+		            <li><a href="${proPath }/resource/selectByClassify/ide">IDE</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="${proPath }/resource/selectByClassify/book">书籍</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="${proPath }/resource/selectByClassify/video">影视</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="${proPath }/resource/selectByClassify/game">游戏</a></li>
+		          </ul>
+		        </li> --%>
+				<li><a href="${proPath }/essay/4.html">学习教程文章</a></li>
+				<%-- <li>
+                	<a href="http://www.itlaiba.com#problem">留言</a>
+                </li>--%>
+			</ul>
+			<%-- <a class="navbar-btn btn btn-sm btn-primary navbar-center " onclick="window.open('${proPath}/login.jsp','_banck');">注册</a>--%>
+			<%-- <c:choose>
+            	<c:when test="${empty users }">
+	            	 <a class="navbar-btn btn btn-sm btn-primary navbar-center " onclick="window.open('${proPath}/login.jsp','_banck');">登入</a>
+	            </c:when>
+	            <c:otherwise>  
+		           	<a class="navbar-btn btn btn-sm btn-primary navbar-center " onclick="${users=null} location.reload(true);">退出</a>
+	            </c:otherwise>
+            </c:choose> --%>
+		</div>
+	</nav>
+</div>
+<!-- about -->
+<div class="about" id="about">
+	<div class="container">
+		<span class="about-top-w3">it资源共享</span>
+		<h4 class="title-w3ls">关于本站</h4>
+		<h4 class="">
+			本站专为资源共享，唯一网站主页:<a href="">www.itlaiba.com</a>
+		</h4>
+		<p class="para-w3-agile">本人经常在网上搜索资料，搜索麻烦，所以这里提供本人搜寻到的资源下载以及部分个人项目下载</p>
+		<p class="para-w3-agile">该网站使用Spring4+Springmvc+Mybatis3架构，采用Mysql数据库；使用Maven3管理项目,使用Shiro作为项目安全框架，，支持restful风格，前台网页使用主流的Bootstrap3
+			UI框架;后台管理使用主流易用的EasyUI轻量级框架；数据库连接池使用的是C3P0，在线编辑器使用了开源的ueditor，支持单图，多图上传，支持截图上传，支持代码高亮特性；
+		</p>
+		<!--这里省略的是还未完成的功能，此处为：技能进度条，后续完成展示-->
+		<!-- <div class="skills-bar">
+		<h4 class="title-w3ls">My Skills</h4>
+			<section class='bar'>
+				<section class='wrap'>
+					<div class='wrap_right'>
+					  <div class='bar_group'>
+						<div class='bar_group__bar thin' label='jQuery' show_values='true' tooltip='true' value='343'></div>
+						<div class='bar_group__bar thin' label='AJAX' show_values='true' tooltip='true' value='235'></div>
+						<div class='bar_group__bar thin' label='PHP' show_values='true' tooltip='true' value='675'></div>
+						<div class='bar_group__bar thin' label='SASS' show_values='true' tooltip='true' value='456'></div>
+						<div class='bar_group__bar thin' label='HTML' show_values='true' tooltip='true' value='245'></div>
+						</div>
+					</div>
+					<div class='clear'></div>
+				</section>
+			</section>
+		</div> -->
+	</div>
+</div>

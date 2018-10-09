@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itlaiba.itlaibashare.users.mapper.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.itlaiba.itlaibashare.users.pojo.Users">
+    <id column="uid" jdbcType="VARCHAR" property="uid" />
+    <id column="login_id" jdbcType="VARCHAR" property="loginId" />
+    <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+  </resultMap>
+ 
+  <sql id="Base_Column_List">
+    uid, login_id, login_pwd, login_name, email
+  </sql>
+  
+  <select id="selectByPrimaryKey" parameterType="com.itlaiba.itlaibashare.users.pojo.UsersKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where login_id = #{loginId,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="com.itlaiba.itlaibashare.users.pojo.UsersKey">
+    delete from users
+    where uid = #{uid,jdbcType=VARCHAR}
+      and login_id = #{loginId,jdbcType=VARCHAR}
+  </delete>
+  
+  <insert id="insert" parameterType="com.itlaiba.itlaibashare.users.pojo.Users">
+    insert into users (uid, login_id, login_pwd, 
+      login_name, email)
+    values (#{uid,jdbcType=VARCHAR}, #{loginId,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, 
+      #{loginName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR})
+  </insert>
+    
+  <update id="updateByPrimaryKey" parameterType="com.itlaiba.itlaibashare.users.pojo.Users">
+    update users
+    set login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=VARCHAR}
+      and login_id = #{loginId,jdbcType=VARCHAR}
+  </update>
+</mapper>

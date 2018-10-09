@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itlaiba.itlaibashare.myresource.mapper.MyresourceMapper">
+  <resultMap id="BaseResultMap" type="com.itlaiba.itlaibashare.myresource.pojo.Myresource">
+    <id column="order_by" jdbcType="INTEGER" property="orderBy" />
+    <id column="myresource_id" jdbcType="VARCHAR" property="myresourceId" />
+    <result column="myresource_title" jdbcType="VARCHAR" property="myresourceTitle" />
+    <result column="myresource_img" jdbcType="VARCHAR" property="myresourceImg" />
+    <result column="myresource_url" jdbcType="VARCHAR" property="myresourceUrl" />
+    <result column="myresource_time" jdbcType="TIMESTAMP" property="myresourceTime" />
+    <result column="myresource_number" jdbcType="INTEGER" property="myresourceNumber" />
+    <result column="myresource_sayurl" jdbcType="VARCHAR" property="myresourceSayurl" />    
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.itlaiba.itlaibashare.myresource.pojo.Myresource">
+    <result column="myresource_content" jdbcType="LONGVARCHAR" property="myresourceContent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    order_by, myresource_id, myresource_title, myresource_img,myresource_sayurl, myresource_url, myresource_time, 
+    myresource_number, user_id
+  </sql>
+  <sql id="Blob_Column_List">
+    myresource_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.itlaiba.itlaibashare.myresource.pojo.MyresourceExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from myresource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.itlaiba.itlaibashare.myresource.pojo.MyresourceExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />,
+    <include refid="Blob_Column_List" />
+    from myresource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.itlaiba.itlaibashare.myresource.pojo.MyresourceKey" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from myresource
+    where myresource_id = #{myresourceId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.itlaiba.itlaibashare.myresource.pojo.MyresourceKey">
+    delete from myresource
+    where myresource_id = #{myresourceId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.itlaiba.itlaibashare.myresource.pojo.MyresourceExample">
+    delete from myresource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.itlaiba.itlaibashare.myresource.pojo.Myresource">
+    insert into myresource (order_by, myresource_id, myresource_title, 
+      myresource_img, myresource_url, myresource_time, 
+      myresource_number, user_id, myresource_content
+      )
+    values (#{orderBy,jdbcType=INTEGER}, #{myresourceId,jdbcType=VARCHAR}, #{myresourceTitle,jdbcType=VARCHAR}, 
+      #{myresourceImg,jdbcType=VARCHAR}, #{myresourceUrl,jdbcType=VARCHAR}, #{myresourceTime,jdbcType=TIMESTAMP}, 
+      #{myresourceNumber,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{myresourceContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itlaiba.itlaibashare.myresource.pojo.Myresource">
+    insert into myresource
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderBy != null">
+        order_by,
+      </if>
+      <if test="myresourceId != null">
+        myresource_id,
+      </if>
+      <if test="myresourceTitle != null">
+        myresource_title,
+      </if>
+      <if test="myresourceImg != null">
+        myresource_img,
+      </if>
+      <if test="myresourceUrl != null">
+        myresource_url,
+      </if>
+      <if test="myresourceTime != null">
+        myresource_time,
+      </if>
+      <if test="myresourceNumber != null">
+        myresource_number,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="myresourceContent != null">
+        myresource_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderBy != null">
+        #{orderBy,jdbcType=INTEGER},
+      </if>
+      <if test="myresourceId != null">
+        #{myresourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="myresourceTitle != null">
+        #{myresourceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="myresourceImg != null">
+        #{myresourceImg,jdbcType=VARCHAR},
+      </if>
+      <if test="myresourceUrl != null">
+        #{myresourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="myresourceTime != null">
+        #{myresourceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="myresourceNumber != null">
+        #{myresourceNumber,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="myresourceContent != null">
+        #{myresourceContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.itlaiba.itlaibashare.myresource.pojo.MyresourceExample" resultType="java.lang.Long">
+    select count(*) from myresource
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update myresource
+    <set>
+      <if test="record.orderBy != null">
+        order_by = #{record.orderBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.myresourceId != null">
+        myresource_id = #{record.myresourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.myresourceTitle != null">
+        myresource_title = #{record.myresourceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.myresourceImg != null">
+        myresource_img = #{record.myresourceImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.myresourceUrl != null">
+        myresource_url = #{record.myresourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.myresourceTime != null">
+        myresource_time = #{record.myresourceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.myresourceNumber != null">
+        myresource_number = #{record.myresourceNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.myresourceContent != null">
+        myresource_content = #{record.myresourceContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update myresource
+    set order_by = #{record.orderBy,jdbcType=INTEGER},
+      myresource_id = #{record.myresourceId,jdbcType=VARCHAR},
+      myresource_title = #{record.myresourceTitle,jdbcType=VARCHAR},
+      myresource_img = #{record.myresourceImg,jdbcType=VARCHAR},
+      myresource_url = #{record.myresourceUrl,jdbcType=VARCHAR},
+      myresource_time = #{record.myresourceTime,jdbcType=TIMESTAMP},
+      myresource_number = #{record.myresourceNumber,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      myresource_content = #{record.myresourceContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update myresource
+    set order_by = #{record.orderBy,jdbcType=INTEGER},
+      myresource_id = #{record.myresourceId,jdbcType=VARCHAR},
+      myresource_title = #{record.myresourceTitle,jdbcType=VARCHAR},
+      myresource_img = #{record.myresourceImg,jdbcType=VARCHAR},
+      myresource_url = #{record.myresourceUrl,jdbcType=VARCHAR},
+      myresource_time = #{record.myresourceTime,jdbcType=TIMESTAMP},
+      myresource_number = #{record.myresourceNumber,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itlaiba.itlaibashare.myresource.pojo.Myresource">
+    update myresource
+    <set>
+      <if test="myresourceTitle != null">
+        myresource_title = #{myresourceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="myresourceImg != null">
+        myresource_img = #{myresourceImg,jdbcType=VARCHAR},
+      </if>
+      <if test="myresourceUrl != null">
+        myresource_url = #{myresourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="myresourceTime != null">
+        myresource_time = #{myresourceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="myresourceNumber != null">
+        myresource_number = #{myresourceNumber,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="myresourceContent != null">
+        myresource_content = #{myresourceContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where order_by = #{orderBy,jdbcType=INTEGER}
+      and myresource_id = #{myresourceId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.itlaiba.itlaibashare.myresource.pojo.Myresource">
+    update myresource
+    set myresource_title = #{myresourceTitle,jdbcType=VARCHAR},
+      myresource_img = #{myresourceImg,jdbcType=VARCHAR},
+      myresource_url = #{myresourceUrl,jdbcType=VARCHAR},
+      myresource_time = #{myresourceTime,jdbcType=TIMESTAMP},
+      myresource_number = #{myresourceNumber,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
+      myresource_content = #{myresourceContent,jdbcType=LONGVARCHAR}
+    where  myresource_id = #{myresourceId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itlaiba.itlaibashare.myresource.pojo.Myresource">
+    update myresource
+    set myresource_title = #{myresourceTitle,jdbcType=VARCHAR},
+      myresource_img = #{myresourceImg,jdbcType=VARCHAR},
+      myresource_url = #{myresourceUrl,jdbcType=VARCHAR},
+      myresource_time = #{myresourceTime,jdbcType=TIMESTAMP},
+      myresource_number = #{myresourceNumber,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR}
+    where myresource_id = #{myresourceId,jdbcType=VARCHAR}
+  </update>
+</mapper>
