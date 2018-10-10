@@ -16,7 +16,7 @@ public class GetDate {
 	 * @return
 	 */
 	public static String GetsimpleDate(){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = dateFormat.format(new Date());
 		return date;
 	}

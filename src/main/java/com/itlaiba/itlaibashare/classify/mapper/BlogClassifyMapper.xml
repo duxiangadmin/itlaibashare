@@ -22,4 +22,8 @@
   <select id="selectify" resultMap="BaseResultMap">
   	select class_ify,blog_id,classify_img from blog_classify
   </select>
+  
+  <select id="selectbyblogid" parameterType="string" resultMap="BaseResultMap">
+  	select blog_id from blog_classify where class_ify = #{blog_classify}
+  </select>
 </mapper>

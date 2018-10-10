@@ -26,11 +26,16 @@
   	select <include refid="min_Column_List"/> from blog_essay
   </select>
   
-  <select id="select" parameterType="com.itlaiba.itlaibashare.page.Page" resultMap="ResultMapWithBLOBs">
+  <!-- <select id="select" parameterType="com.itlaiba.itlaibashare.page.Page" resultMap="ResultMapWithBLOBs">
   	select <include refid="Base_Column_List"/> from blog_essay
   	<if test="keyword!=null and ''!=keyword">
   		where blog_title like '%${keyword}%'
   	</if>
+  	ORDER BY order_by DESC
+  </select> -->
+  <select id="select" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  	select <include refid="Base_Column_List"/> from blog_essay
+  		where blog_classify = #{blog_classify}
   	ORDER BY order_by DESC
   </select>
   

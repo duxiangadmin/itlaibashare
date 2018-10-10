@@ -9,7 +9,7 @@ public interface BlogEssayMapper {
    public BlogEssay selectByPrimaryKey(String id);
    public int insert(BlogEssay blogEssay);
    public List<BlogEssay> selectList();
-   public List<BlogEssay> select(Page page);
+   public List<BlogEssay> select(int ify);
    public int deleteList(String[] id);
    public int update(BlogEssay blogEssay);
 }

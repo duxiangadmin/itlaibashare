@@ -7,7 +7,7 @@
 <head>
 
 <title>it资源共享</title>
-
+<base target="_blank">
 <%@include file="/common/common.jspf" %>
 <script type="text/javascript">
 $(function(){

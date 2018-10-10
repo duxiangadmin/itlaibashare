@@ -1,8 +1,5 @@
 package com.itlaiba.itlaibashare.blog.service.impl;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,6 +13,8 @@ import com.itlaiba.itlaibashare.base.utils.GetDate;
 import com.itlaiba.itlaibashare.blog.mapper.BlogEssayMapper;
 import com.itlaiba.itlaibashare.blog.pojo.BlogEssay;
 import com.itlaiba.itlaibashare.blog.service.BlogEssayService;
+import com.itlaiba.itlaibashare.classify.mapper.BlogClassifyMapper;
+import com.itlaiba.itlaibashare.classify.pojo.BlogClassify;
 import com.itlaiba.itlaibashare.page.Page;
 @Service
 @Transactional(rollbackFor=Exception.class)
@@ -23,6 +22,8 @@ public class BlogEssayServiceImpl implements BlogEssayService {
 
 	@Autowired
 	private BlogEssayMapper blogEssayMapper;
+	@Autowired
+	private BlogClassifyMapper ify;
 	
 	/**
 	 * easyui添加博客文章
@@ -87,12 +88,18 @@ public class BlogEssayServiceImpl implements BlogEssayService {
 
 	public List<BlogEssay> select(Page page) {
 		PageHelper.offsetPage(page.getStart(), page.getCount());
-		List<BlogEssay> list = blogEssayMapper.select(page);
+		int byblogId = selectByblogId(page.getKeyword());
+		List<BlogEssay> list = blogEssayMapper.select(byblogId);
 		int total = (int) new PageInfo<BlogEssay>(list).getTotal();
 		page.setLast(total);
 		page.setRows(total);
 		page.setTp(total);
 		page.caculateLast(total);
 		return list;
+	}
+	
+	public int selectByblogId(String keyword){
+		BlogClassify blogClassify = ify.selectbyblogid(keyword);
+		return blogClassify.getBlogId();
 	}
 }
