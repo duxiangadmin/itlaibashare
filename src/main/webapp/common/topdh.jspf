@@ -46,6 +46,7 @@
 					href="https://codeload.github.com/duxiangadmin/itlaibashare/zip/master">本站源码下载</a>
 				</li>
 				<li><a href="${proPath }/essay/4.html">学习教程文章</a></li>
+				<li><a href="${proPath }/zizhu.jsp" style="color:red">资助人列表</a></li>
 			</ul>
 		</div>
 	</nav>

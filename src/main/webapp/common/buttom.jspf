@@ -6,12 +6,12 @@
 			<span style="float: right;font-size: 0.6em"><a href="${proPath }/message/selectpage">最新留言</a></span>
 		</h4>
 		<div class="col-md-5 contact-agileits-w3layouts">		
-			<form id="ff" action="${proPath }/message/insert.action"  method="post">
+			<%--<form id="ff" action="${proPath }/message/insert.action"  method="post">
 				<input type="text" name="messageUser" value="${users.loginId }" placeholder="留言人" />				
 				<input type="text" Name="messageTitle" maxlength="20" placeholder="留言标题" required=""/>
 				<textarea name="MessageContent" placeholder="留言内容" required="required"></textarea>
 				<input type="submit" value="提交站长"><div id="output1"></div>
-			</form>
+			</form>--%>
 			<h5 class="sub">有偿域名备案,网站制作，个人网站发布</h5>
 			<p><span>微信</span> :  aaaaa3202</p>
 			<p><span>QQ</span> :  937220832</p>

@@ -26,4 +26,9 @@
     <from>^/sdy/([a-zA-Z0-9]+).html$</from>
     <to>/sdy/selectById/$1</to>
   </rule>
+  <rule>
+  	<note>这里是资助的伪静态</note>
+    <from>^/zizhu.html$</from>
+    <to>/zizhu.jsp</to>
+  </rule>
 </urlrewrite>
