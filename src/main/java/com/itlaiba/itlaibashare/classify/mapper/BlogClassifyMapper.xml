@@ -20,7 +20,7 @@
   </select>
   
   <select id="selectify" resultMap="BaseResultMap">
-  	select class_ify,blog_id,classify_img from blog_classify
+  	select class_ify,blog_id,classify_img from blog_classify order by orderbys 
   </select>
   
   <select id="selectbyblogid" parameterType="string" resultMap="BaseResultMap">

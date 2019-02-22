@@ -16,7 +16,7 @@
 				$.each(data,function(i){
 					str+="<div class='col-md-3' style='margin-top:10px;'>";
 					str+="<a href=${proPath}/blog/select?keyword="+data[i]['classIfy']+">";
-					str+="<img width=230px height=250px src=${proPath}/classifyimg/"+data[i]['classifyImg']+">";
+					str+="<img width=200px height=80px src=${proPath}/classifyimg/"+data[i]['classifyImg']+">";
 					str+="</img>";
 					str+="</a>";
 					str+="</div>";

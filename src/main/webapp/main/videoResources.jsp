@@ -41,12 +41,12 @@
 				<h5>免费、收费</h5>
 			</div>	
 			
-			<div class="input-group">
-		      <input type="text" id="keyword" class="form-control" placeholder="Search for...">
-		      <span class="input-group-btn">
-		        <button id="search" class="btn btn-default" type="button">Go!</button>
-		      </span>
-		    </div>
+			<!-- <div class="input-group">
+					      <input type="text" id="keyword" class="form-control" placeholder="Search for...">
+					      <span class="input-group-btn">
+					        <button id="search" class="btn btn-default" type="button">Go!</button>
+					      </span>
+					    </div> -->
     	</div>
 		<div class="news-bottom">
 				<div class="news-one-wthree-agile">	

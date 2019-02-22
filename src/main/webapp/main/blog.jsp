@@ -74,6 +74,7 @@
 		});
 	});
 </script>
+<%--
 <div style="text-align:center">
 		<a title="总页数">&nbsp;<b>共${page.pc }/${page.tp }页</b></a>
 		<a href="${page.url}&start=0">首  页</a>	
@@ -96,7 +97,7 @@
 			3. 如果begin<1，那么让begin=1，end=6
 			4. 如果end>tp, 让begin=tp-5, end=tp
 			 --%>
-			 <c:choose>
+		<%--	 <c:choose>
 			 	<c:when test="${page.tp <= 6 }">
 			 		<c:set var="begin" value="1"/>
 			 		<c:set var="end" value="${page.tp }"/>
@@ -122,12 +123,12 @@
 			   	  </c:when>
 			   	  <c:otherwise>   	  	
 			   	  	<%-- <a href="<c:url value='?start=${i }'"/> ${i }</a>  --%> 
-			   	  	<a href="${page.url}&start=${(i-1)*page.count }" >${i }</a>  	    
+		<%--	   	  	<a href="${page.url}&start=${(i-1)*page.count }" >${i }</a>  	    
 			   	  </c:otherwise>
 			   </c:choose>
 			</c:forEach>
 		<%-- 显示点点点 --%>
-	    <c:if test="${end < page.tp }">
+	  <%--  <c:if test="${end < page.tp }">
 	      <span class="spanApostrophe">...</span>
 	    </c:if>
 		
@@ -142,8 +143,9 @@
 		</c:choose>
 		
 		<%-- <a href="?start=${page.start+page.count}">下一页</a> --%>
-		<a href="${page.url}&start=${page.last}">末  页</a>
+	<%--	<a href="${page.url}&start=${page.last}">末  页</a>
 	</div>
+	--%>
 <!-- //about -->
 <%@include file="/common/buttom.jspf" %>
 </body>
